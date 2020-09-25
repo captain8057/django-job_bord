@@ -28,10 +28,17 @@ class Job(models.Model):  #tabdle
     Vacancy =models.IntegerField(default=1)
     salary = models.IntegerField(default=0)
     experience = models.IntegerField(default=1)
-
+    category =models.ForeignKey('Category',on_delete=models.CASCADE)
 
     #return name of job in admin panal
     def __str__(self):
         return self.title
 
-       
+
+
+class Category(models.Model):
+    Name = models.CharField(max_length=25)
+
+
+    def __str__(self):
+        return self.Name
